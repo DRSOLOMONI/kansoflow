@@ -1,21 +1,23 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Services", to: "/services" },
-  { label: "Case Studies", to: "/case-studies" },
-  { label: "About", to: "/about" },
-  { label: "Insights", to: "/insights" },
-  { label: "Contact", to: "/contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.home, to: "/" },
+    { label: t.nav.services, to: "/services" },
+    { label: t.nav.caseStudies, to: "/case-studies" },
+    { label: t.nav.about, to: "/about" },
+    { label: t.nav.insights, to: "/insights" },
+    { label: t.nav.contact, to: "/contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,6 +29,8 @@ export default function Header() {
     setIsOpen(false);
   }, [location.pathname]);
 
+  const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,7 +41,7 @@ export default function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-0 font-heading text-xl font-bold">
           <span className="text-foreground">Kanso</span>
-          <span className="text-primary ml-1.5">Flow</span>
+          <span className="text-primary ms-1.5">Flow</span>
         </Link>
 
         {/* Desktop nav */}
@@ -63,13 +67,23 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTA */}
-        <Link
-          to="/contact"
-          className="hidden md:inline-flex h-9 px-5 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-heading font-semibold transition-all duration-300 hover:bg-primary/90 green-glow-sm"
-        >
-          Get Started
-        </Link>
+        {/* Desktop CTA + Lang */}
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 px-3 h-9 rounded-md border border-border text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+            aria-label="Toggle language"
+          >
+            <Globe size={16} />
+            <span>{lang === "en" ? "العربية" : "English"}</span>
+          </button>
+          <Link
+            to="/contact"
+            className="inline-flex h-9 px-5 items-center justify-center rounded-md bg-primary text-primary-foreground text-sm font-heading font-semibold transition-all duration-300 hover:bg-primary/90 green-glow-sm"
+          >
+            {t.nav.getStarted}
+          </Link>
+        </div>
 
         {/* Mobile menu button */}
         <button
@@ -110,16 +124,32 @@ export default function Header() {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* Mobile lang toggle */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.05 }}
               >
+                <button
+                  onClick={toggleLang}
+                  className="flex items-center gap-2 px-6 py-3 rounded-md border border-border text-lg font-medium text-muted-foreground hover:text-primary transition-all"
+                >
+                  <Globe size={20} />
+                  {lang === "en" ? "العربية" : "English"}
+                </button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: (navLinks.length + 1) * 0.05 }}
+              >
                 <Link
                   to="/contact"
                   className="mt-4 inline-flex h-12 px-8 items-center justify-center rounded-md bg-primary text-primary-foreground text-lg font-heading font-semibold green-glow"
                 >
-                  Get Started
+                  {t.nav.getStarted}
                 </Link>
               </motion.div>
             </nav>

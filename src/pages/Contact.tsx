@@ -3,19 +3,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Linkedin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
-
-const industries = [
-  "Select industry",
-  "FinTech",
-  "Healthcare",
-  "E-Commerce",
-  "SaaS",
-  "Logistics",
-  "Manufacturing",
-  "Other",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -28,15 +19,15 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill in all required fields.");
+      toast.error(t.contactPage.toastError);
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      toast.error("Please enter a valid email address.");
+      toast.error(t.contactPage.toastEmailError);
       return;
     }
     setSubmitted(true);
-    toast.success("Message sent! We'll be in touch soon.");
+    toast.success(t.contactPage.toastSuccess);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -53,10 +44,10 @@ export default function Contact() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-              Let's <span className="green-gradient-text">Simplify Together</span>
+              {t.contactPage.title} <span className="green-gradient-text">{t.contactPage.titleAccent}</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tell us about your challenges and we'll design the path to clarity.
+              {t.contactPage.subtitle}
             </p>
           </motion.div>
 
@@ -69,10 +60,10 @@ export default function Contact() {
               >
                 <CheckCircle2 className="text-primary mx-auto mb-6" size={48} />
                 <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-                  Message Received
+                  {t.contactPage.successTitle}
                 </h2>
                 <p className="text-muted-foreground">
-                  We'll review your message and get back to you within 24 hours.
+                  {t.contactPage.successMessage}
                 </p>
               </motion.div>
             ) : (
@@ -86,7 +77,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Name <span className="text-destructive">*</span>
+                      {t.contactPage.name} <span className="text-destructive">{t.contactPage.required}</span>
                     </label>
                     <input
                       id="name"
@@ -94,14 +85,14 @@ export default function Contact() {
                       type="text"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Your name"
+                      placeholder={t.contactPage.namePlaceholder}
                       className="w-full h-12 px-4 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground green-focus transition-all"
                       maxLength={100}
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email <span className="text-destructive">*</span>
+                      {t.contactPage.email} <span className="text-destructive">{t.contactPage.required}</span>
                     </label>
                     <input
                       id="email"
@@ -109,7 +100,7 @@ export default function Contact() {
                       type="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="you@company.com"
+                      placeholder={t.contactPage.emailPlaceholder}
                       className="w-full h-12 px-4 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground green-focus transition-all"
                       maxLength={255}
                     />
@@ -119,7 +110,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                      Company
+                      {t.contactPage.company}
                     </label>
                     <input
                       id="company"
@@ -127,14 +118,14 @@ export default function Contact() {
                       type="text"
                       value={form.company}
                       onChange={handleChange}
-                      placeholder="Your company"
+                      placeholder={t.contactPage.companyPlaceholder}
                       className="w-full h-12 px-4 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground green-focus transition-all"
                       maxLength={100}
                     />
                   </div>
                   <div>
                     <label htmlFor="industry" className="block text-sm font-medium text-foreground mb-2">
-                      Industry
+                      {t.contactPage.industry}
                     </label>
                     <select
                       id="industry"
@@ -143,8 +134,8 @@ export default function Contact() {
                       onChange={handleChange}
                       className="w-full h-12 px-4 rounded-lg bg-secondary border border-border text-foreground green-focus transition-all appearance-none cursor-pointer"
                     >
-                      {industries.map((ind) => (
-                        <option key={ind} value={ind === "Select industry" ? "" : ind}>
+                      {t.contactPage.industries.map((ind, i) => (
+                        <option key={ind} value={i === 0 ? "" : ind}>
                           {ind}
                         </option>
                       ))}
@@ -154,7 +145,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    How can we help? <span className="text-destructive">*</span>
+                    {t.contactPage.message} <span className="text-destructive">{t.contactPage.required}</span>
                   </label>
                   <textarea
                     id="message"
@@ -162,14 +153,14 @@ export default function Contact() {
                     value={form.message}
                     onChange={handleChange}
                     rows={5}
-                    placeholder="Tell us about your challenges and what you'd like to achieve..."
+                    placeholder={t.contactPage.messagePlaceholder}
                     className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground green-focus transition-all resize-none"
                     maxLength={1000}
                   />
                 </div>
 
                 <Button type="submit" variant="hero" size="xl" className="w-full">
-                  Send Message
+                  {t.contactPage.submit}
                   <ArrowRight size={20} />
                 </Button>
               </motion.form>
@@ -195,7 +186,7 @@ export default function Contact() {
             {/* Badge */}
             <div className="mt-8 flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <Clock className="text-primary" size={16} />
-              <span>We respond within 24 hours</span>
+              <span>{t.contactPage.responseTime}</span>
             </div>
           </div>
         </div>

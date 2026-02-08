@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function FinalCTA() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-32 cta-gradient relative overflow-hidden">
       {/* Ambient glow */}
@@ -22,14 +25,14 @@ export default function FinalCTA() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Ready to <span className="text-primary">Simplify</span>?
+            {t.finalCTA.title} <span className="text-primary">{t.finalCTA.titleAccent}</span>?
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10">
-            Let's transform your complex workflows into streamlined, intelligent systems that just work.
+            {t.finalCTA.subtitle}
           </p>
           <Button asChild variant="hero" size="xl">
             <Link to="/contact">
-              Start Your Flow
+              {t.finalCTA.cta}
               <ArrowRight size={20} />
             </Link>
           </Button>
