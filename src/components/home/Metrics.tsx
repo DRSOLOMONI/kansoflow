@@ -1,35 +1,17 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
-
-const metrics = [
-  { value: "340%", label: "Average ROI" },
-  { value: "60+", label: "Projects Delivered" },
-  { value: "85%", label: "Time Saved" },
-  { value: "98%", label: "Client Retention" },
-];
-
-const testimonials = [
-  {
-    quote: "Kanso Flow transformed our entire operations. What used to take days now takes minutes.",
-    author: "Sarah Chen",
-    role: "CTO, TechScale Inc.",
-  },
-  {
-    quote: "The simplicity of their solutions is remarkable. They truly understand the art of removing complexity.",
-    author: "Marcus Webb",
-    role: "VP Operations, DataFlow",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Metrics() {
   const { ref, isVisible } = useScrollAnimation();
+  const { t } = useLanguage();
 
   return (
     <section className="py-24" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
-          {metrics.map((metric, i) => (
+          {t.metrics.items.map((metric, i) => (
             <div
               key={metric.label}
               className={`text-center ${isVisible ? "animate-fade-in" : "opacity-0"}`}
@@ -45,19 +27,19 @@ export default function Metrics() {
 
         {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {testimonials.map((t, i) => (
+          {t.metrics.testimonials.map((testimonial, i) => (
             <motion.div
-              key={t.author}
+              key={testimonial.author}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
               className="p-8 rounded-xl border border-border bg-card"
             >
-              <p className="text-foreground leading-relaxed mb-6 italic">"{t.quote}"</p>
+              <p className="text-foreground leading-relaxed mb-6 italic">"{testimonial.quote}"</p>
               <div>
-                <p className="font-heading font-semibold text-foreground">{t.author}</p>
-                <p className="text-muted-foreground text-sm">{t.role}</p>
+                <p className="font-heading font-semibold text-foreground">{testimonial.author}</p>
+                <p className="text-muted-foreground text-sm">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}

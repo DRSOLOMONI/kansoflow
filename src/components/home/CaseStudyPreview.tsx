@@ -1,48 +1,29 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
-const cases = [
-  {
-    tag: "FinTech",
-    title: "Automating Compliance Workflows",
-    result: "72% reduction in processing time",
-    slug: "fintech-compliance",
-  },
-  {
-    tag: "Healthcare",
-    title: "AI-Powered Patient Intake",
-    result: "3x faster onboarding",
-    slug: "healthcare-intake",
-  },
-  {
-    tag: "E-Commerce",
-    title: "Intelligent Inventory Management",
-    result: "$2.1M in annual savings",
-    slug: "ecommerce-inventory",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CaseStudyPreview() {
   const { ref, isVisible } = useScrollAnimation();
+  const { t } = useLanguage();
 
   return (
     <section className="py-24 section-gradient" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Case <span className="text-primary">Studies</span>
+            {t.casePreview.title} <span className="text-primary">{t.casePreview.titleAccent}</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Real results from real transformations.
+            {t.casePreview.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {cases.map((c, i) => (
+          {t.casePreview.cases.map((c, i) => (
             <Link
               to="/case-studies"
-              key={c.slug}
+              key={c.title}
               className={`group p-6 rounded-xl border border-border bg-card card-hover block ${
                 isVisible ? "animate-fade-in" : "opacity-0"
               }`}
@@ -56,7 +37,7 @@ export default function CaseStudyPreview() {
               </h3>
               <p className="text-primary font-heading font-bold text-sm mb-4">{c.result}</p>
               <span className="text-muted-foreground text-sm inline-flex items-center gap-1 group-hover:text-primary transition-colors">
-                Read Full Story <ArrowRight size={14} />
+                {t.casePreview.readFullStory} <ArrowRight size={14} />
               </span>
             </Link>
           ))}

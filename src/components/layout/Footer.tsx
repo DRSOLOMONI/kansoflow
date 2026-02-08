@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail } from "lucide-react";
-
-const footerLinks = {
-  Company: [
-    { label: "About", to: "/about" },
-    { label: "Services", to: "/services" },
-    { label: "Case Studies", to: "/case-studies" },
-    { label: "Contact", to: "/contact" },
-  ],
-  Resources: [
-    { label: "Insights", to: "/insights" },
-    { label: "Privacy Policy", to: "#" },
-    { label: "Terms of Service", to: "#" },
-  ],
-};
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
+  const footerLinks = {
+    [t.footer.company]: [
+      { label: t.nav.about, to: "/about" },
+      { label: t.nav.services, to: "/services" },
+      { label: t.nav.caseStudies, to: "/case-studies" },
+      { label: t.nav.contact, to: "/contact" },
+    ],
+    [t.footer.resources]: [
+      { label: t.nav.insights, to: "/insights" },
+      { label: t.footer.privacyPolicy, to: "#" },
+      { label: t.footer.termsOfService, to: "#" },
+    ],
+  };
+
   return (
     <footer className="border-t border-primary/20">
       <div className="container mx-auto px-6 py-16">
@@ -24,11 +27,10 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="font-heading text-xl font-bold">
               <span className="text-foreground">Kanso</span>
-              <span className="text-primary ml-1.5">Flow</span>
+              <span className="text-primary ms-1.5">Flow</span>
             </Link>
             <p className="mt-4 text-muted-foreground max-w-sm leading-relaxed">
-              Transforming complex workflows into elegant, automated solutions. 
-              Simplicity is not the absence of complexity—it's mastery of it.
+              {t.footer.description}
             </p>
             <div className="flex gap-4 mt-6">
               {[Linkedin, Twitter, Mail].map((Icon, i) => (
@@ -66,10 +68,10 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Kanso Flow. All rights reserved.
+            {t.footer.copyright}
           </p>
           <p className="text-sm text-muted-foreground">
-            Complexity, Simplified.
+            {t.footer.tagline}
           </p>
         </div>
       </div>

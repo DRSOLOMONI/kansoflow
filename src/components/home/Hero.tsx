@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import FlowLines from "./FlowLines";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <FlowLines />
@@ -22,13 +25,13 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-primary font-heading text-sm tracking-[0.3em] uppercase mb-6"
           >
-            AI Automation Consultancy
+            {t.hero.badge}
           </motion.p>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
-            <span className="text-foreground">Complexity,</span>
+            <span className="text-foreground">{t.hero.headline1}</span>
             <br />
-            <span className="green-gradient-text">Simplified.</span>
+            <span className="green-gradient-text">{t.hero.headline2}</span>
           </h1>
 
           <motion.p
@@ -37,8 +40,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Transform chaotic workflows into seamless automation with AI. 
-            We design intelligent systems that let your business flow.
+            {t.hero.subheadline}
           </motion.p>
 
           <motion.div
@@ -49,13 +51,13 @@ export default function Hero() {
           >
             <Button asChild variant="hero" size="xl">
               <Link to="/contact">
-                Start Your Flow
+                {t.hero.cta}
                 <ArrowRight size={20} />
               </Link>
             </Button>
             <Button asChild variant="hero-outline" size="xl">
               <Link to="/services">
-                Explore Services
+                {t.hero.ctaSecondary}
               </Link>
             </Button>
           </motion.div>
