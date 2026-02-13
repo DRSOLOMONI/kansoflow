@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, Linkedin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -16,7 +17,9 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error(t.contactPage.toastError);
@@ -24,6 +27,19 @@ export default function Contact() {
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       toast.error(t.contactPage.toastEmailError);
+      return;
+    }
+    setIsSubmitting(true);
+    const { error } = await supabase.from("contact_submissions").insert({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      company: form.company.trim() || null,
+      industry: form.industry || null,
+      message: form.message.trim(),
+    });
+    setIsSubmitting(false);
+    if (error) {
+      toast.error(t.contactPage.toastError);
       return;
     }
     setSubmitted(true);
@@ -159,9 +175,9 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button type="submit" variant="hero" size="xl" className="w-full">
-                  {t.contactPage.submit}
-                  <ArrowRight size={20} />
+                <Button type="submit" variant="hero" size="xl" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "..." : t.contactPage.submit}
+                  {!isSubmitting && <ArrowRight size={20} />}
                 </Button>
               </motion.form>
             )}
