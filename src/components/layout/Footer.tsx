@@ -3,17 +3,33 @@ import { Linkedin, Twitter, Mail } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+
+  const platformLabel = lang === "ar" ? "المنصة" : "Platform";
+  const solutionsLabel = lang === "ar" ? "الحلول" : "Solutions";
 
   const footerLinks = {
     [t.footer.company]: [
       { label: t.nav.about, to: "/about" },
-      { label: t.nav.services, to: "/services" },
       { label: t.nav.caseStudies, to: "/case-studies" },
       { label: t.nav.contact, to: "/contact" },
+      { label: lang === "ar" ? "الوظائف" : "Careers", to: "#" },
+    ],
+    [platformLabel]: [
+      { label: lang === "ar" ? "منشئ سير العمل" : "Workflow Builder", to: "/services" },
+      { label: lang === "ar" ? "وكلاء الذكاء الاصطناعي" : "AI Agents", to: "/services" },
+      { label: lang === "ar" ? "التكاملات" : "Integrations", to: "/services" },
+      { label: lang === "ar" ? "ذكاء العمليات" : "Process Intelligence", to: "/services" },
+    ],
+    [solutionsLabel]: [
+      { label: lang === "ar" ? "للشركات الناشئة" : "Startups", to: "/services" },
+      { label: lang === "ar" ? "للأعمال الصغيرة" : "Small Business", to: "/services" },
+      { label: lang === "ar" ? "السوق المتوسطة" : "Mid Market", to: "/services" },
+      { label: lang === "ar" ? "المؤسسات" : "Enterprise", to: "/services" },
     ],
     [t.footer.resources]: [
       { label: t.nav.insights, to: "/insights" },
+      { label: lang === "ar" ? "حاسبة التوفير" : "Savings Calculator", to: "#" },
       { label: t.footer.privacyPolicy, to: "#" },
       { label: t.footer.termsOfService, to: "#" },
     ],
@@ -22,7 +38,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-primary/20">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="font-heading text-xl font-bold">
