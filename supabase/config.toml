@@ -1,1 +1,4 @@
 project_id = "stlkioolchmpjgnfyzqq"
+
+[functions.kai-mechanic]
+verify_jwt = false
