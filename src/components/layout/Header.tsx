@@ -13,7 +13,6 @@ export default function Header() {
   const navLinks = [
     { label: t.nav.home, to: "/" },
     { label: t.nav.services, to: "/services" },
-    { label: t.nav.caseStudies, to: "/case-studies" },
     { label: t.nav.about, to: "/about" },
     { label: t.nav.insights, to: "/insights" },
     { label: t.nav.contact, to: "/contact" },
