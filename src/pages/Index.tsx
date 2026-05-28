@@ -8,7 +8,6 @@ import IndustriesGrid from "@/components/home/IndustriesGrid";
 import IntegrationsMarquee from "@/components/home/IntegrationsMarquee";
 import HowItWorks from "@/components/home/HowItWorks";
 import Metrics from "@/components/home/Metrics";
-import CaseStudyPreview from "@/components/home/CaseStudyPreview";
 import Comparison from "@/components/home/Comparison";
 import FAQ from "@/components/home/FAQ";
 import MarqueeTicker from "@/components/home/MarqueeTicker";
@@ -27,7 +26,6 @@ const Index = () => {
       <IntegrationsMarquee />
       <HowItWorks />
       <Metrics />
-      <CaseStudyPreview />
       <Comparison />
       <FAQ />
       <MarqueeTicker />

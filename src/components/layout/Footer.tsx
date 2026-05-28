@@ -11,7 +11,6 @@ export default function Footer() {
   const footerLinks = {
     [t.footer.company]: [
       { label: t.nav.about, to: "/about" },
-      { label: t.nav.caseStudies, to: "/case-studies" },
       { label: t.nav.contact, to: "/contact" },
       { label: lang === "ar" ? "الوظائف" : "Careers", to: "#" },
     ],
@@ -49,12 +48,18 @@ export default function Footer() {
               {t.footer.description}
             </p>
             <div className="flex gap-4 mt-6">
-              {[Linkedin, Twitter, Mail].map((Icon, i) => (
+              {[
+                { Icon: Twitter, href: "https://twitter.com/usekansoflow", label: "Twitter" },
+                { Icon: Mail, href: "mailto:usekansoflow@gmail.com", label: "Email" },
+                { Icon: Linkedin, href: "#", label: "LinkedIn" },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-all duration-300"
-                  aria-label="Social link"
+                  aria-label={label}
                 >
                   <Icon size={18} />
                 </a>
