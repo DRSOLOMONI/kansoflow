@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Linkedin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Mail, Twitter, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -183,19 +183,21 @@ export default function Contact() {
             )}
 
             {/* Contact info */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
-                { icon: Mail, label: "hello@kansoflow.com" },
-                { icon: Phone, label: "+1 (555) 123-4567" },
-                { icon: Linkedin, label: "LinkedIn" },
+                { icon: Mail, label: "usekansoflow@gmail.com", href: "mailto:usekansoflow@gmail.com" },
+                { icon: Twitter, label: "@usekansoflow", href: "https://twitter.com/usekansoflow" },
               ].map((item) => (
-                <div
+                <a
                   key={item.label}
-                  className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card"
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="flex items-center gap-3 p-4 rounded-lg border border-border bg-card hover:border-primary/40 transition-colors"
                 >
                   <item.icon className="text-primary shrink-0" size={18} />
                   <span className="text-sm text-muted-foreground">{item.label}</span>
-                </div>
+                </a>
               ))}
             </div>
 
