@@ -3,6 +3,7 @@ import LogoMarquee from "@/components/home/LogoMarquee";
 import PlatformTagline from "@/components/home/PlatformTagline";
 import ProductSuite from "@/components/home/ProductSuite";
 import FeatureRows from "@/components/home/FeatureRows";
+import KaiDemo from "@/components/home/KaiDemo";
 import ValueProposition from "@/components/home/ValueProposition";
 import IndustriesGrid from "@/components/home/IndustriesGrid";
 import IntegrationsMarquee from "@/components/home/IntegrationsMarquee";
@@ -21,6 +22,7 @@ const Index = () => {
       <PlatformTagline />
       <ProductSuite />
       <FeatureRows />
+      <KaiDemo />
       <ValueProposition />
       <IndustriesGrid />
       <IntegrationsMarquee />
