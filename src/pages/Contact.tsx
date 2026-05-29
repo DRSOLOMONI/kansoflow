@@ -53,6 +53,11 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Kanso Flow – Get in Touch"
+        description="Reach the Kanso Flow team at usekansoflow@gmail.com or @usekansoflow on Twitter to scope your AI automation project."
+        path="/contact"
+      />
       <section className="pt-32 pb-24">
         <div className="container mx-auto px-6">
           <motion.div
