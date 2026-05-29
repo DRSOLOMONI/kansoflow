@@ -6,6 +6,7 @@ import {
   ArrowRight, CheckCircle2
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 const icons = [Workflow, Bot, BrainCircuit, Plug, Database];
 
@@ -15,6 +16,19 @@ export default function Services() {
 
   return (
     <>
+      <SEO
+        title="Services – AI Workflows, Agents & Integrations | Kanso Flow"
+        description="Workflow automation, AI agents, integrations, and process intelligence services to streamline operations across your business."
+        path="/services"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "AI Automation Consultancy",
+          provider: { "@type": "Organization", name: "Kanso Flow", url: "https://kansoflow.lovable.app/" },
+          areaServed: "Global",
+          description: "Workflow automation, AI agents, integrations, and process intelligence for startups to enterprise.",
+        }}
+      />
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="container mx-auto px-6 text-center">

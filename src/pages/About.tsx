@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Eye, Trophy, Handshake } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 const valueIcons = [Sparkles, Eye, Trophy, Handshake];
 
@@ -11,6 +12,11 @@ export default function About() {
 
   return (
     <>
+      <SEO
+        title="About Kanso Flow – Our Mission & Approach"
+        description="Meet the team behind Kanso Flow and learn how we simplify complexity through AI automation and intelligent workflow design."
+        path="/about"
+      />
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="container mx-auto px-6 text-center">

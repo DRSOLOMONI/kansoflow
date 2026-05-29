@@ -5,6 +5,7 @@ import { Mail, Twitter, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
+import SEO from "@/components/SEO";
 
 export default function Contact() {
   const { t } = useLanguage();

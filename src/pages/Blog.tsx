@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SEO from "@/components/SEO";
 
 export default function Blog() {
   const { t } = useLanguage();
@@ -17,6 +18,11 @@ export default function Blog() {
 
   return (
     <>
+      <SEO
+        title="Insights – AI Automation Articles & Guides | Kanso Flow"
+        description="Articles, guides, and case studies on AI automation, workflow strategy, and operational excellence from the Kanso Flow team."
+        path="/insights"
+      />
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="container mx-auto px-6 text-center">
