@@ -1,0 +1,13 @@
+# Kanso Flow
+
+> AI automation consultancy that turns chaotic workflows into seamless, intelligent systems. Bilingual (English/Arabic).
+
+Kanso Flow designs, deploys, and manages AI-powered workflows and voice agents for startups, mid-market, and enterprise teams across finance, healthcare, automotive, and operations.
+
+## Pages
+
+- [Home](/): Overview of the Kanso Flow platform, product suite, and Kai voice agent demo.
+- [Services](/services): Workflow automation, AI agents, integrations, and process intelligence offerings.
+- [About](/about): Company mission, approach, and team behind Kanso Flow.
+- [Insights](/insights): Articles on AI automation, workflow strategy, and operational excellence.
+- [Contact](/contact): Reach the team at usekansoflow@gmail.com or @usekansoflow on Twitter.

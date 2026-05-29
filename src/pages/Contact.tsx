@@ -5,6 +5,7 @@ import { Mail, Twitter, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
+import SEO from "@/components/SEO";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -52,6 +53,11 @@ export default function Contact() {
 
   return (
     <>
+      <SEO
+        title="Contact Kanso Flow – Get in Touch"
+        description="Reach the Kanso Flow team at usekansoflow@gmail.com or @usekansoflow on Twitter to scope your AI automation project."
+        path="/contact"
+      />
       <section className="pt-32 pb-24">
         <div className="container mx-auto px-6">
           <motion.div
