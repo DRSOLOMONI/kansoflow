@@ -4,12 +4,25 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import FlowLines from "./FlowLines";
 import { useLanguage } from "@/contexts/LanguageContext";
+import heroFlow from "@/assets/hero-flow.jpg";
 
 export default function Hero() {
   const { t } = useLanguage();
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Ambient backdrop */}
+      <div className="absolute inset-0 pointer-events-none">
+        <img
+          src={heroFlow}
+          alt=""
+          aria-hidden="true"
+          width={1920}
+          height={1080}
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background" />
+      </div>
       <FlowLines />
 
       <div className="container mx-auto px-6 relative z-10 text-center">
