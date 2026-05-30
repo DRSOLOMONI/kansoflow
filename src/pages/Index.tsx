@@ -14,6 +14,9 @@ import Comparison from "@/components/home/Comparison";
 import FAQ from "@/components/home/FAQ";
 import MarqueeTicker from "@/components/home/MarqueeTicker";
 import FinalCTA from "@/components/home/FinalCTA";
+import FounderNote from "@/components/home/FounderNote";
+import ChaosToFlow from "@/components/home/ChaosToFlow";
+import WorkflowDiagram from "@/components/home/WorkflowDiagram";
 
 const Index = () => {
   const faqJsonLd = {
@@ -41,14 +44,17 @@ const Index = () => {
       <Hero />
       <LogoMarquee />
       <PlatformTagline />
+      <ChaosToFlow />
+      <KaiDemo />
+      <FounderNote />
+      <WorkflowDiagram />
       <ProductSuite />
       <FeatureRows />
-      <KaiDemo />
-      <ValueProposition />
       <IndustriesGrid />
-      <IntegrationsMarquee />
       <HowItWorks />
+      <ValueProposition />
       <Metrics />
+      <IntegrationsMarquee />
       <Comparison />
       <FAQ />
       <MarqueeTicker />
