@@ -23,10 +23,10 @@ export const en = {
   // Hero
   hero: {
     badge: "AI Automation Consultancy",
-    headline1: "Complexity,",
-    headline2: "Simplified.",
-    subheadline: "Transform chaotic workflows into seamless automation with AI. We design intelligent systems that let your business flow.",
-    cta: "Start Your Flow",
+    headline1: "Your business,",
+    headline2: "finally flowing.",
+    subheadline: "Hey — I'm building Kanso Flow to take the repetitive, tangled work off your team's plate. Real automations, set up by humans, that just work in the background.",
+    cta: "Let's talk",
     ctaSecondary: "Explore Services",
   },
   // Value Proposition
