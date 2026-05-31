@@ -19,75 +19,46 @@ export default function FAQ() {
         : "Get in touch and let's talk through it.",
     faqs: [
       {
-        q: lang === "ar" ? "ما هو كانسو فلو وماذا يفعل؟" : "What is Kanso Flow and what does it do?",
+        q: lang === "ar" ? "ماذا يبني كانسو فلو؟" : "What does Kanso Flow build?",
         a:
           lang === "ar"
-            ? "كانسو فلو هي منصة استشارات وتنفيذ لأتمتة الذكاء الاصطناعي. نصمم، ننشر، وندير سير عمل ذكي ينهي العمل المتكرر."
-            : "Kanso Flow is an AI automation consultancy and platform. We design, deploy, and manage intelligent workflows that eliminate repetitive work.",
+            ? "نبني وكلاء صوتيين بالذكاء الاصطناعي يردّون على المكالمات، يؤهّلون العملاء، يحجزون المواعيد، ويقدمون الدعم — بالعربية والإنجليزية."
+            : "We build voice AI agents that answer calls, qualify leads, book appointments, and handle support — fully in English and Arabic.",
       },
       {
-        q: lang === "ar" ? "هل تقدمون فترة تجريبية مجانية؟" : "Do you offer a free trial?",
+        q: lang === "ar" ? "كم يبدو الصوت طبيعياً؟" : "How natural does the voice sound?",
         a:
           lang === "ar"
-            ? "نقدم استشارة مجانية واستكشاف نطاق العمل. بعدها نقترح مشروعًا تجريبيًا منخفض المخاطر يثبت العائد قبل التوسع."
-            : "We offer a free discovery consultation, then propose a low-risk pilot that proves ROI before scaling.",
+            ? "معظم المتصلين لا يميّزون. نضبط الصوت، الإيقاع، والمقاطعات حتى تبدو المحادثة بشرية."
+            : "Most callers can't tell. We tune voice, pacing, and interruptions until conversations feel human.",
       },
       {
-        q:
-          lang === "ar"
-            ? "هل يستبدل كانسو فلو الموظفين البشريين؟"
-            : "Does Kanso Flow replace human employees?",
+        q: lang === "ar" ? "هل يعمل بالعربية؟" : "Does it work in Arabic?",
         a:
           lang === "ar"
-            ? "لا. نزيل العمل المتكرر حتى تركز فرقك على الاستراتيجية والإبداع والقرارات عالية القيمة."
-            : "No. We remove repetitive work so your teams can focus on strategy, creativity, and high-value decisions.",
+            ? "نعم — أصلياً بالعربية والإنجليزية، مع إمكانية التبديل بينهما داخل المحادثة."
+            : "Yes — natively in Arabic and English, with mid-conversation language switching.",
       },
       {
-        q: lang === "ar" ? "ما مدى أمان كانسو فلو؟" : "How secure is Kanso Flow?",
+        q: lang === "ar" ? "كم نحتاج لنطلق؟" : "How quickly can we go live?",
         a:
           lang === "ar"
-            ? "نبني وفق معايير SOC 2، HIPAA، و GDPR مع تشفير شامل وضوابط وصول صارمة."
-            : "We build to SOC 2, HIPAA, and GDPR standards with end-to-end encryption and strict access controls.",
+            ? "وكيل صوتي يعمل خلال أيام عادةً. التكاملات الكاملة تكتمل خلال ٢ إلى ٤ أسابيع."
+            : "A working voice agent is usually live within days. Full integrations land in 2–4 weeks.",
       },
       {
-        q:
-          lang === "ar"
-            ? "كم يستغرق الإطلاق؟"
-            : "How quickly can we get started?",
+        q: lang === "ar" ? "هل يتصل بالتقويم و CRM؟" : "Does it connect to our calendar and CRM?",
         a:
           lang === "ar"
-            ? "معظم العمليات التجريبية تكون مباشرة خلال أسبوعين. التطبيقات الكاملة على مستوى المؤسسة من ٤ إلى ٨ أسابيع."
-            : "Most pilots are live within 2 weeks. Full enterprise rollouts take 4–8 weeks.",
+            ? "نعم. يحجز في تقويم Google/Outlook ويكتب في الـ CRM لحظياً."
+            : "Yes. The agent books into Google/Outlook calendars and writes back to your CRM in real time.",
       },
       {
-        q:
-          lang === "ar"
-            ? "هل تتكامل مع أنظمتنا الحالية؟"
-            : "Does it integrate with our existing systems?",
+        q: lang === "ar" ? "ماذا لو لم يستطع الوكيل المساعدة؟" : "What happens if the agent can't help?",
         a:
           lang === "ar"
-            ? "نعم. لدينا أكثر من ٩٥ تكاملًا جاهزًا، ويمكننا بناء موصلات مخصصة للأنظمة القديمة."
-            : "Yes. 95+ ready integrations, and we can build custom connectors for legacy systems.",
-      },
-      {
-        q:
-          lang === "ar"
-            ? "هل أحتاج إلى مهارات تقنية لاستخدامه؟"
-            : "Do I need technical skills to use it?",
-        a:
-          lang === "ar"
-            ? "لا. نقوم بكل الإعداد والتكوين والصيانة. فرقك تستخدم لوحات معلومات بسيطة."
-            : "No. We handle all setup, configuration, and maintenance. Your teams use simple dashboards.",
-      },
-      {
-        q:
-          lang === "ar"
-            ? "هل يتوسع مع أحجام كبيرة؟"
-            : "Does it scale to high volumes?",
-        a:
-          lang === "ar"
-            ? "نعم. تعمل بنيتنا التحتية على آلاف العمليات المتزامنة عبر مناطق عالمية متعددة."
-            : "Yes. Our infrastructure handles thousands of concurrent workflows across multiple global regions.",
+            ? "ينقل المكالمة لإنسان أو يجدول معاودة الاتصال — المتصل لا يُترك أبداً."
+            : "It gracefully transfers to a human or schedules a callback — never leaving the caller stuck.",
       },
     ],
   };
