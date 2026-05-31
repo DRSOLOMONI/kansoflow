@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import founderImg from "@/assets/founder-desk.jpg";
+import founderImg from "@/assets/founder-solomoni.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function FounderNote() {
@@ -20,7 +20,7 @@ export default function FounderNote() {
           >
             <img
               src={founderImg}
-              alt={isAr ? "مؤسس كانسو فلو" : "Kanso Flow founder at work"}
+              alt={isAr ? "سولوموني، مؤسس كانسو فلو" : "Solomoni, founder of Kanso Flow"}
               loading="lazy"
               width={1024}
               height={1024}
@@ -36,26 +36,26 @@ export default function FounderNote() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-primary text-xs tracking-[0.3em] uppercase font-heading mb-5">
-              {isAr ? "ملاحظة من المؤسس" : "A note from the founder"}
+              {isAr ? "مرحباً، أنا سولوموني" : "Hi, I'm Solomoni"}
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-6">
               {isAr
-                ? "أنا لا أبيع \"ذكاء اصطناعي\" — أبيع وقتك الذي ضاع."
-                : "I'm not selling you \u201cAI.\u201d I'm giving you back the hours you lost."}
+                ? "لا أبيع \"ذكاء اصطناعي\" — أبني وكلاء صوتيين يردّون على هاتفك."
+                : "I don't sell \u201cAI.\u201d I build voice agents that actually pick up your phone."}
             </h2>
             <div className="space-y-5 text-muted-foreground text-lg leading-relaxed">
               <p>
                 {isAr
-                  ? "بدأت كانسو فلو لأنني سئمت من رؤية فرق رائعة تغرق في الإيميلات، النماذج، والمتابعات. الأدوات موجودة — لكن لا أحد لديه الوقت ليجمعها معاً."
-                  : "I started Kanso Flow because I was tired of watching brilliant teams drown in emails, forms, and follow-ups. The tools exist \u2014 nobody has the time to wire them together."}
+                  ? "أنا رائد أعمال وبنّاء، أطلقت عدة مشاريع وقضيت سنوات في استكشاف كيف يلتقي الذكاء الاصطناعي بمشاكل الأعمال الحقيقية."
+                  : "I'm a builder and entrepreneur. I've launched multiple ventures and spent years exploring where AI actually meets real business problems \u2014 not the hype version."}
               </p>
               <p>
                 {isAr
-                  ? "نحن نقوم بذلك من أجلك. نتحدث معك، نفهم سير عملك، ونبني الأتمتة بأنفسنا. لا روبوتات تبيع لك روبوتات."
-                  : "We do that for you. We sit down with you, learn your workflow, and build the automations ourselves. No bots selling you bots."}
+                  ? "بدأت كانسو فلو لسبب واحد: بناء وكلاء صوتيين عمليين يوفّرون الوقت، يلتقطون كل مكالمة، ويخلقون قيمة قابلة للقياس \u2014 وليس مجرد عرض تقني."
+                  : "I started Kanso Flow for one reason: to build practical voice agents that save real time, catch every call, and create measurable value \u2014 not just a tech demo."}
               </p>
               <p className="text-foreground">
-                {isAr ? "— إذا كان شيء يستهلك ساعاتك كل أسبوع، تحدث معنا." : "\u2014 If something is eating your hours every week, talk to us."}
+                {isAr ? "\u2014 إذا كان هاتفك يرنّ أكثر مما يمكن لفريقك الرد، تحدث معي مباشرة." : "\u2014 If your phone rings more than your team can answer, talk to me directly."}
               </p>
             </div>
             <Link

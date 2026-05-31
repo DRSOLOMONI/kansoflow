@@ -3,6 +3,7 @@ import SEO from "@/components/SEO";
 import KaiDemo from "@/components/home/KaiDemo";
 import VoiceUseCases from "@/components/home/VoiceUseCases";
 import HowItWorks from "@/components/home/HowItWorks";
+import FounderNote from "@/components/home/FounderNote";
 import FAQ from "@/components/home/FAQ";
 import FinalCTA from "@/components/home/FinalCTA";
 
@@ -31,6 +32,7 @@ const Index = () => {
       <KaiDemo />
       <VoiceUseCases />
       <HowItWorks />
+      <FounderNote />
       <FAQ />
       <FinalCTA />
     </>
