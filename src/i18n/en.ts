@@ -22,12 +22,12 @@ export const en = {
   },
   // Hero
   hero: {
-    badge: "AI Automation Consultancy",
-    headline1: "Your business,",
-    headline2: "finally flowing.",
-    subheadline: "Hey — I'm building Kanso Flow to take the repetitive, tangled work off your team's plate. Real automations, set up by humans, that just work in the background.",
-    cta: "Let's talk",
-    ctaSecondary: "Explore Services",
+    badge: "Voice AI Agents",
+    headline1: "Voice agents that",
+    headline2: "actually pick up.",
+    subheadline: "We build voice AI agents that answer calls, qualify leads, book appointments, and handle support — in English and Arabic. Talk to Kai below.",
+    cta: "Book a call",
+    ctaSecondary: "Try Kai now",
   },
   // Value Proposition
   value: {
@@ -57,19 +57,19 @@ export const en = {
   howItWorks: {
     title: "How It",
     titleAccent: "Works",
-    subtitle: "Three steps from complexity to clarity.",
+    subtitle: "From idea to a live voice agent in three steps.",
     steps: [
       {
         title: "Discover",
-        description: "We map your workflows, identify bottlenecks, and uncover opportunities where AI creates the most impact.",
+        description: "We listen to your calls, learn your script, your tone, and the exact outcomes you want from every conversation.",
       },
       {
-        title: "Design",
-        description: "We architect elegant, scalable solutions tailored to your specific processes and technology stack.",
+        title: "Train",
+        description: "We design Kai's voice, persona, and guardrails — wired into your CRM, calendar, and phone numbers.",
       },
       {
-        title: "Deploy",
-        description: "We implement, test, and launch your automation with continuous optimization for peak performance.",
+        title: "Go Live",
+        description: "Your agent answers in days, not months. We monitor every call and tune it until it sounds undeniably human.",
       },
     ],
   },
