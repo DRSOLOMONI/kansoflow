@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Eye, Trophy, Handshake } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import SEO from "@/components/SEO";
+import founderPhoto from "@/assets/founder-solomoni.png";
 
 const valueIcons = [Sparkles, Eye, Trophy, Handshake];
 
@@ -14,7 +15,7 @@ export default function About() {
     <>
       <SEO
         title="About Kanso Flow – Our Mission & Approach"
-        description="Meet the team behind Kanso Flow and learn how we simplify complexity through AI automation and intelligent workflow design."
+        description="Meet Solomoni, founder of Kanso Flow, building voice AI agents that pick up the phone for real businesses."
         path="/about"
       />
       {/* Hero */}
@@ -86,33 +87,36 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Founder */}
       <section className="py-24">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-16">
-            {t.aboutPage.teamTitle} <span className="text-primary">{t.aboutPage.teamTitleAccent}</span>
+        <div className="container mx-auto px-6 max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+            {t.aboutPage.founderTitle}{" "}
+            <span className="text-primary">{t.aboutPage.founderTitleAccent}</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {t.aboutPage.team.map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-xl border border-border bg-card card-hover"
-              >
-                <div className="w-16 h-16 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-primary font-heading font-bold text-lg">
-                    {member.name.split(" ").map(n => n[0]).join("")}
-                  </span>
-                </div>
-                <h3 className="font-heading font-bold text-foreground text-center">{member.name}</h3>
-                <p className="text-primary text-sm text-center mb-3">{member.role}</p>
-                <p className="text-muted-foreground text-sm text-center leading-relaxed">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 items-center p-8 rounded-2xl border border-primary/20 bg-card green-glow-sm"
+          >
+            <div className="relative w-40 h-40 rounded-2xl overflow-hidden border border-primary/30 mx-auto md:mx-0">
+              <img
+                src={founderPhoto}
+                alt={t.aboutPage.founder.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="text-center md:text-start">
+              <h3 className="font-heading font-bold text-foreground text-2xl">
+                {t.aboutPage.founder.name}
+              </h3>
+              <p className="text-primary text-sm mb-4">{t.aboutPage.founder.role}</p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t.aboutPage.founder.bio}
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
