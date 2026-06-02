@@ -4,7 +4,6 @@ export const ar = {
   nav: {
     home: "الرئيسية",
     services: "الخدمات",
-    caseStudies: "دراسات الحالة",
     about: "من نحن",
     insights: "المقالات",
     contact: "تواصل معنا",

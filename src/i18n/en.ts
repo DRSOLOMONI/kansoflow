@@ -1,10 +1,9 @@
 export const en = {
   dir: "ltr" as const,
   // Navigation
-  nav: {
+    nav: {
     home: "Home",
     services: "Services",
-    caseStudies: "Case Studies",
     about: "About",
     insights: "Insights",
     contact: "Contact",
@@ -250,14 +249,13 @@ export const en = {
       { title: "Excellence", description: "We hold ourselves to the highest standards. Every solution is crafted with precision." },
       { title: "Partnership", description: "Your success is our success. We work alongside you, not just for you." },
     ],
-    teamTitle: "Our",
-    teamTitleAccent: "Team",
-    team: [
-      { name: "Alex Kanso", role: "Founder & CEO", bio: "15+ years in AI and automation. Former lead at two Fortune 500 companies." },
-      { name: "Yuki Tanaka", role: "Head of Engineering", bio: "PhD in Machine Learning. Built automation systems processing 1M+ daily transactions." },
-      { name: "Marcus Chen", role: "Head of Strategy", bio: "Ex-McKinsey. Specializes in digital transformation for enterprise clients." },
-      { name: "Priya Sharma", role: "Lead AI Architect", bio: "Pioneer in conversational AI. 20+ patents in natural language processing." },
-    ],
+    founderTitle: "Meet the",
+    founderTitleAccent: "Founder",
+    founder: {
+      name: "Solomoni",
+      role: "Founder & CEO",
+      bio: "Builder, entrepreneur, and AI enthusiast focused on practical voice AI agents that help businesses answer calls, qualify leads, and book appointments around the clock. After launching multiple ventures and exploring emerging tech, I started Kanso Flow to build AI systems that create measurable value, solve real problems, and make advanced technology accessible to every business — not just enterprises.",
+    },
     ctaTitle: "Work",
     ctaTitleAccent: "With Us",
     ctaSubtitle: "Join the companies that have found their flow.",
