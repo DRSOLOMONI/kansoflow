@@ -1,6 +1,6 @@
 import Hero from "@/components/home/Hero";
 import SEO from "@/components/SEO";
-import KaiDemo from "@/components/home/KaiDemo";
+import KansoVoiceAgent from "@/components/home/KansoVoiceAgent";
 import VoiceUseCases from "@/components/home/VoiceUseCases";
 import HowItWorks from "@/components/home/HowItWorks";
 import FounderNote from "@/components/home/FounderNote";
@@ -29,7 +29,7 @@ const Index = () => {
         jsonLd={faqJsonLd}
       />
       <Hero />
-      <KaiDemo />
+      <KansoVoiceAgent />
       <VoiceUseCases />
       <HowItWorks />
       <FounderNote />
