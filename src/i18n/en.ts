@@ -292,7 +292,7 @@ export const en = {
     heroTitleAccent: "Insights",
     heroSubtitle: "Thoughts on AI, automation, and the art of simplification.",
     searchPlaceholder: "Search articles...",
-    categories: ["All", "AI Strategy", "Automation", "Case Studies", "Industry Trends"],
+    categories: ["All", "AI Strategy", "Automation", "Industry Trends"],
     readCta: "Read",
     noResults: "No articles found matching your criteria.",
     articles: [
@@ -327,14 +327,6 @@ export const en = {
         excerpt: "From patient intake to diagnostic support, AI is fundamentally changing healthcare delivery.",
         date: "Jan 8, 2026",
         readTime: "7 min read",
-      },
-      {
-        id: "roi-of-process-automation",
-        category: "Case Studies",
-        title: "Measuring the True ROI of Process Automation",
-        excerpt: "Beyond cost savings: how to measure the full impact of automation on your organization.",
-        date: "Dec 20, 2025",
-        readTime: "9 min read",
       },
       {
         id: "data-pipelines-best-practices",

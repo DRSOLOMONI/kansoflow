@@ -20,7 +20,7 @@ export default function Blog() {
     <>
       <SEO
         title="Insights – AI Automation Articles & Guides | Kanso Flow"
-        description="Articles, guides, and case studies on AI automation, workflow strategy, and operational excellence from the Kanso Flow team."
+        description="Articles and guides on voice AI agents, automation, and operational excellence from Kanso Flow."
         path="/insights"
       />
       {/* Hero */}
