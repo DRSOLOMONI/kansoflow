@@ -22,16 +22,22 @@ serve(async (req) => {
       );
     }
 
-    const model = "gpt-4o-realtime-preview-2024-12-17";
+    const model = "gpt-realtime";
     const voice = "alloy";
 
-    const r = await fetch("https://api.openai.com/v1/realtime/sessions", {
+    const r = await fetch("https://api.openai.com/v1/realtime/client_secrets", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${OPENAI_API_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ model, voice }),
+      body: JSON.stringify({
+        session: {
+          type: "realtime",
+          model,
+          audio: { output: { voice } },
+        },
+      }),
     });
 
     if (!r.ok) {
@@ -44,9 +50,14 @@ serve(async (req) => {
     }
 
     const data = await r.json();
-    return new Response(JSON.stringify({ ...data, model }), {
+    // Normalize to { client_secret: { value }, model } for the client
+    const value = data?.value ?? data?.client_secret?.value;
+    return new Response(
+      JSON.stringify({ ...data, client_secret: { value }, model }),
+      {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
+      },
+    );
   } catch (e) {
     console.error("openai-realtime-session error", e);
     return new Response(

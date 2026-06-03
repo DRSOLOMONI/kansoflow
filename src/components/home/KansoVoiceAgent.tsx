@@ -189,9 +189,6 @@ export default function KansoVoiceAgent() {
       type: "session.update",
       session: {
         instructions: systemPrompt,
-        modalities: ["text", "audio"],
-        input_audio_transcription: { model: "gpt-4o-mini-transcribe" },
-        turn_detection: { type: "server_vad" },
         tools,
         tool_choice: "auto",
       },
