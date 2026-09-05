@@ -30,7 +30,7 @@ export default function FinalCTA() {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
             {isAr
-              ? "أرسل لنا المنيو وطريقة استقبال الطلبات، وسنجهز تجربة توضح كم مكالمة وطلب يمكن لكanso Flow إنقاذها شهرياً."
+              ? "أرسل لنا المنيو وطريقة استقبال الطلبات، وسنجهز تجربة توضح كم مكالمة وطلب يمكن لكانسو فلو إنقاذها شهرياً."
               : "Send us your menu and current call flow. We will set up a pilot that shows how many calls, orders, and leads Kanso Flow can recover each month."}
           </p>
           <Button asChild variant="hero" size="xl">
