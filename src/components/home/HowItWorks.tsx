@@ -1,32 +1,69 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Search, PenTool, Rocket } from "lucide-react";
+import { ClipboardList, MessageSquareText, Rocket } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const icons = [Search, PenTool, Rocket];
+const icons = [ClipboardList, MessageSquareText, Rocket];
 const numbers = ["01", "02", "03"];
 
 export default function HowItWorks() {
   const { ref, isVisible } = useScrollAnimation();
-  const { t } = useLanguage();
+  const { lang } = useLanguage();
+  const isAr = lang === "ar";
+
+  const copy = {
+    title: isAr ? "كيف" : "How it",
+    titleAccent: isAr ? "نبدأ" : "works",
+    subtitle: isAr
+      ? "من أول مكالمة تجريبية إلى وكيل يرد على عملائك خلال أيام."
+      : "From the first sample call to a live agent answering customers in days.",
+    steps: isAr
+      ? [
+          {
+            title: "نجمع المنيو والقواعد",
+            description: "نضبط ساعات العمل، الأصناف، الإضافات، الحساسية، مناطق التوصيل، ومتى يجب تحويل المكالمة للموظف.",
+          },
+          {
+            title: "نبني السكربت والتسليم",
+            description: "نحدد طريقة كلام زارا، تأكيد الطلب، ووجهة الملخص: SMS، واتساب، بريد، لوحة تحكم، أو تكامل لاحق.",
+          },
+          {
+            title: "نطلق ونحسن",
+            description: "نراقب المكالمات الأولى، نراجع الأخطاء، ونضبط الردود حتى تصبح مناسبة لأسلوب مطعمك.",
+          },
+        ]
+      : [
+          {
+            title: "Map your menu and rules",
+            description: "We configure hours, items, modifiers, allergens, delivery zones, and the exact moments Zara should hand off to staff.",
+          },
+          {
+            title: "Build the script and handoff",
+            description: "We tune Zara's tone, confirmation flow, and where each summary goes: SMS, WhatsApp, email, dashboard, or later POS integration.",
+          },
+          {
+            title: "Go live and tune calls",
+            description: "We monitor early calls, review mistakes, and tighten answers until the agent fits the way your restaurant actually works.",
+          },
+        ],
+  };
 
   return (
     <section className="py-24" ref={ref}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            {t.howItWorks.title} <span className="text-primary">{t.howItWorks.titleAccent}</span>
+            {copy.title} <span className="text-primary">{copy.titleAccent}</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            {t.howItWorks.subtitle}
+            {copy.subtitle}
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Connecting line */}
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent -translate-y-1/2" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {t.howItWorks.steps.map((step, i) => {
+            {copy.steps.map((step, i) => {
               const Icon = icons[i];
               return (
                 <div
