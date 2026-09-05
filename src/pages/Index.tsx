@@ -3,6 +3,7 @@ import SEO from "@/components/SEO";
 import VoiceWaiter from "@/components/home/VoiceWaiter";
 import VoiceUseCases from "@/components/home/VoiceUseCases";
 import HowItWorks from "@/components/home/HowItWorks";
+import Pricing from "@/components/home/Pricing";
 import FounderNote from "@/components/home/FounderNote";
 import FAQ from "@/components/home/FAQ";
 import FinalCTA from "@/components/home/FinalCTA";
@@ -12,19 +13,19 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: "What does Kanso Flow build?", acceptedAnswer: { "@type": "Answer", text: "We build voice AI agents that answer calls, qualify leads, book appointments, and handle support — fully in English and Arabic." } },
-      { "@type": "Question", name: "How natural does the voice sound?", acceptedAnswer: { "@type": "Answer", text: "Most callers can't tell. We tune voice, pacing, and interruptions until conversations feel human." } },
-      { "@type": "Question", name: "Does it work in Arabic?", acceptedAnswer: { "@type": "Answer", text: "Yes — natively in Arabic and English, with mid-conversation language switching." } },
-      { "@type": "Question", name: "How quickly can we go live?", acceptedAnswer: { "@type": "Answer", text: "A working voice agent is usually live within days. Full integrations land in 2–4 weeks." } },
-      { "@type": "Question", name: "Does it connect to our calendar and CRM?", acceptedAnswer: { "@type": "Answer", text: "Yes. The agent books into Google/Outlook calendars and writes back to your CRM in real time." } },
-      { "@type": "Question", name: "What happens if the agent can't help?", acceptedAnswer: { "@type": "Answer", text: "It gracefully transfers to a human or schedules a callback — never leaving the caller stuck." } },
+      { "@type": "Question", name: "What does Kanso Flow do for restaurants?", acceptedAnswer: { "@type": "Answer", text: "Kanso Flow answers restaurant and cafe calls, takes pickup orders, handles menu questions, captures reservations and catering leads, and sends confirmed summaries to the team." } },
+      { "@type": "Question", name: "Does Kanso Flow work in Arabic and English?", acceptedAnswer: { "@type": "Answer", text: "Yes. The agent can speak Arabic and English and switch based on the caller's language." } },
+      { "@type": "Question", name: "Can the AI take food orders?", acceptedAnswer: { "@type": "Answer", text: "Yes. The AI can collect menu items, modifiers, customer name, pickup time, and confirmation before sending the order to staff." } },
+      { "@type": "Question", name: "Does it replace my POS?", acceptedAnswer: { "@type": "Answer", text: "No. Kanso Flow is designed to capture calls and hand off clean order details to your staff, dashboard, SMS, WhatsApp, email, or POS integration where available." } },
+      { "@type": "Question", name: "How quickly can a cafe go live?", acceptedAnswer: { "@type": "Answer", text: "A first restaurant voice agent can usually go live after the menu, hours, call rules, and handoff method are configured." } },
+      { "@type": "Question", name: "What happens if the agent cannot help?", acceptedAnswer: { "@type": "Answer", text: "It can transfer to staff, take a message, or schedule a callback so the caller is not left stuck." } },
     ],
   };
   return (
     <>
       <SEO
-        title="Kanso Flow – Voice AI Agents that Pick Up"
-        description="Voice AI agents that answer calls, qualify leads, book appointments, and handle support — natively in English and Arabic. Try Kai live."
+        title="Kanso Flow - AI Phone Agent for Cafes and Restaurants"
+        description="AI phone agents for cafes and restaurants. Answer calls, take pickup orders, handle reservations, capture catering leads, and support Arabic and English callers."
         path="/"
         jsonLd={faqJsonLd}
       />
@@ -32,6 +33,7 @@ const Index = () => {
       <VoiceWaiter />
       <VoiceUseCases />
       <HowItWorks />
+      <Pricing />
       <FounderNote />
       <FAQ />
       <FinalCTA />
