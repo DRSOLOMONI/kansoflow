@@ -12,53 +12,53 @@ export default function FAQ() {
   const t = {
     eyebrow: lang === "ar" ? "الأسئلة الشائعة" : "Frequently Asked Questions",
     title:
-      lang === "ar" ? "لا تزال لديك أسئلة؟" : "Still have questions?",
+      lang === "ar" ? "أسئلة صاحب المقهى قبل التجربة" : "What owners ask before trying it",
     sub:
       lang === "ar"
-        ? "تواصل معنا ودعنا نناقشها."
-        : "Get in touch and let's talk through it.",
+        ? "إجابات واضحة قبل أن تضع الذكاء الاصطناعي على خط هاتفك."
+        : "Clear answers before you put an AI agent on your phone line.",
     faqs: [
       {
-        q: lang === "ar" ? "ماذا يبني كانسو فلو؟" : "What does Kanso Flow build?",
+        q: lang === "ar" ? "هل يستبدل كانسو فلو نظام نقاط البيع؟" : "Does Kanso Flow replace my POS?",
         a:
           lang === "ar"
-            ? "نبني وكلاء صوتيين بالذكاء الاصطناعي يردّون على المكالمات، يؤهّلون العملاء، يحجزون المواعيد، ويقدمون الدعم — بالعربية والإنجليزية."
-            : "We build voice AI agents that answer calls, qualify leads, book appointments, and handle support — fully in English and Arabic.",
+            ? "لا. في البداية يعمل كوكيل هاتف يلتقط الطلبات والمكالمات ويرسل ملخصاً واضحاً للفريق. يمكن إضافة تكاملات POS لاحقاً حسب النظام المستخدم."
+            : "No. Start with Kanso Flow as the phone agent that captures calls and sends clean summaries to your team. POS integrations can be added later depending on your system.",
       },
       {
-        q: lang === "ar" ? "كم يبدو الصوت طبيعياً؟" : "How natural does the voice sound?",
+        q: lang === "ar" ? "كيف نقلل أخطاء الطلبات؟" : "How do you reduce wrong orders?",
         a:
           lang === "ar"
-            ? "معظم المتصلين لا يميّزون. نضبط الصوت، الإيقاع، والمقاطعات حتى تبدو المحادثة بشرية."
-            : "Most callers can't tell. We tune voice, pacing, and interruptions until conversations feel human.",
+            ? "كل طلب يتم تكراره للعميل قبل الإرسال. نجمع الاسم، وقت الاستلام، الإضافات، والملاحظات، ثم نرسل ملخصاً مكتوباً للفريق."
+            : "Every order is repeated back before it is sent. We collect name, pickup time, modifiers, and notes, then send a written summary to the team.",
       },
       {
-        q: lang === "ar" ? "هل يعمل بالعربية؟" : "Does it work in Arabic?",
+        q: lang === "ar" ? "هل يعمل بالعربية والإنجليزية؟" : "Does it work in Arabic and English?",
         a:
           lang === "ar"
-            ? "نعم — أصلياً بالعربية والإنجليزية، مع إمكانية التبديل بينهما داخل المحادثة."
-            : "Yes — natively in Arabic and English, with mid-conversation language switching.",
+            ? "نعم. يمكنه الرد بالعربية والإنجليزية والتبديل حسب لغة المتصل، مع إرسال ملخص واضح للفريق باللغة التي تفضلها."
+            : "Yes. It can answer in Arabic and English, switch based on the caller, and send the team summary in the language you prefer.",
       },
       {
-        q: lang === "ar" ? "كم نحتاج لنطلق؟" : "How quickly can we go live?",
+        q: lang === "ar" ? "ماذا يحدث إذا لم يفهم المتصل؟" : "What happens if the agent cannot help?",
         a:
           lang === "ar"
-            ? "وكيل صوتي يعمل خلال أيام عادةً. التكاملات الكاملة تكتمل خلال ٢ إلى ٤ أسابيع."
-            : "A working voice agent is usually live within days. Full integrations land in 2–4 weeks.",
+            ? "نحدد قواعد تحويل واضحة: يحول للموظف، يأخذ رسالة، أو يطلب معاودة الاتصال. الهدف ألا يبقى العميل عالقاً."
+            : "We set clear fallback rules: transfer to staff, take a message, or request a callback. The caller should never feel stuck.",
       },
       {
-        q: lang === "ar" ? "هل يتصل بالتقويم و CRM؟" : "Does it connect to our calendar and CRM?",
+        q: lang === "ar" ? "كم يستغرق الإطلاق؟" : "How long does setup take?",
         a:
           lang === "ar"
-            ? "نعم. يحجز في تقويم Google/Outlook ويكتب في الـ CRM لحظياً."
-            : "Yes. The agent books into Google/Outlook calendars and writes back to your CRM in real time.",
+            ? "يعتمد على حجم المنيو وطريقة التسليم. تجربة أولى يمكن إطلاقها خلال أيام بعد تجهيز المنيو، ساعات العمل، السكربت، ورقم الهاتف."
+            : "It depends on menu complexity and handoff method. A first pilot can usually launch in days once the menu, hours, script, and phone flow are ready.",
       },
       {
-        q: lang === "ar" ? "ماذا لو لم يستطع الوكيل المساعدة؟" : "What happens if the agent can't help?",
+        q: lang === "ar" ? "كيف أعرف أنه يستحق الاشتراك الشهري؟" : "How do I know the monthly fee is worth it?",
         a:
           lang === "ar"
-            ? "ينقل المكالمة لإنسان أو يجدول معاودة الاتصال — المتصل لا يُترك أبداً."
-            : "It gracefully transfers to a human or schedules a callback — never leaving the caller stuck.",
+            ? "نقيس المكالمات المجابة، الطلبات أو العملاء المحتملين الملتقطين، المكالمات الفائتة المسترجعة، والوقت الذي وفرناه على الفريق."
+            : "We track answered calls, captured orders or leads, missed-call recovery, and the staff time saved so the ROI is visible.",
       },
     ],
   };
