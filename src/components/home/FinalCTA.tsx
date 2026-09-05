@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function FinalCTA() {
-  const { t } = useLanguage();
+  const { lang } = useLanguage();
+  const isAr = lang === "ar";
 
   return (
     <section className="py-32 cta-gradient relative overflow-hidden">
-      {/* Ambient glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
@@ -25,14 +25,17 @@ export default function FinalCTA() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            {t.finalCTA.title} <span className="text-primary">{t.finalCTA.titleAccent}</span>?
+            {isAr ? "ابدأ بتجربة على خط" : "Start with your busiest"}{" "}
+            <span className="text-primary">{isAr ? "هاتفك الأكثر ازدحاماً" : "phone line"}</span>.
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10">
-            {t.finalCTA.subtitle}
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
+            {isAr
+              ? "أرسل لنا المنيو وطريقة استقبال الطلبات، وسنجهز تجربة توضح كم مكالمة وطلب يمكن لكanso Flow إنقاذها شهرياً."
+              : "Send us your menu and current call flow. We will set up a pilot that shows how many calls, orders, and leads Kanso Flow can recover each month."}
           </p>
           <Button asChild variant="hero" size="xl">
             <Link to="/contact">
-              {t.finalCTA.cta}
+              {isAr ? "احجز تجربة المطعم" : "Book the restaurant pilot"}
               <ArrowRight size={20} />
             </Link>
           </Button>
