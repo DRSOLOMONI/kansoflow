@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Calendar, Headphones, Stethoscope, ShoppingBag, Wrench } from "lucide-react";
+import { Phone, ShoppingBag, Calendar, CakeSlice, MessageSquare, Languages } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type UseCase = {
@@ -14,118 +14,118 @@ type UseCase = {
 
 const USE_CASES: UseCase[] = [
   {
-    id: "reception",
+    id: "rush",
     icon: Phone,
-    label: { en: "Reception", ar: "الاستقبال" },
-    tag: { en: "Never miss a call", ar: "لا تفوّت أي مكالمة" },
+    label: { en: "Rush Calls", ar: "وقت الزحمة" },
+    tag: { en: "Answers while staff serve guests", ar: "يرد بينما الفريق يخدم العملاء" },
     script: {
       en: {
-        agent: "Thanks for calling Bloom Dental — this is Aya. How can I help?",
-        caller: "Hi, I'd like to book a cleaning next week.",
-        agent2: "Of course. I have Tuesday at 2pm or Thursday at 10am — which works?",
+        agent: "Thanks for calling Luna Cafe. I can take pickup orders or help with the menu.",
+        caller: "Are you open, and can I order two lattes for pickup?",
+        agent2: "Yes, open until 11pm. Two lattes for pickup. Whole milk or oat milk?",
       },
       ar: {
-        agent: "أهلاً بك في عيادة بلوم — معك آية. كيف أقدر أساعدك؟",
-        caller: "أبغى أحجز موعد تنظيف الأسبوع الجاي.",
-        agent2: "تمام. عندي الثلاثاء ٢ ظهراً أو الخميس ١٠ صباحاً — أيهما أنسب؟",
+        agent: "أهلاً بك في لونا كافيه. أقدر آخذ طلب استلام أو أساعدك في المنيو.",
+        caller: "هل أنتم مفتوحين؟ وأقدر أطلب لاتيهين للاستلام؟",
+        agent2: "نعم، مفتوحين إلى ١١ مساءً. لاتيهين للاستلام. حليب عادي أو شوفان؟",
       },
     },
-    outcome: { en: "Booked into Google Calendar · SMS confirmation sent", ar: "تم الحجز في تقويم Google · تم إرسال تأكيد SMS" },
+    outcome: { en: "Call answered · Pickup order started · Staff not interrupted", ar: "تم الرد · بدء طلب الاستلام · بدون تعطيل الموظفين" },
+  },
+  {
+    id: "pickup",
+    icon: ShoppingBag,
+    label: { en: "Pickup Orders", ar: "طلبات الاستلام" },
+    tag: { en: "Clean order summaries", ar: "ملخصات طلب واضحة" },
+    script: {
+      en: {
+        agent: "I have one club sandwich, no tomato, and a lemon mint. Pickup in 20 minutes?",
+        caller: "Yes, under Mariam.",
+        agent2: "Perfect. I repeated the order and sent it to the counter with your name and pickup time.",
+      },
+      ar: {
+        agent: "عندي كلوب ساندويتش بدون طماطم وليمون نعناع. الاستلام بعد ٢٠ دقيقة؟",
+        caller: "نعم، باسم مريم.",
+        agent2: "تمام. كررت الطلب وأرسلته للكاشير مع الاسم ووقت الاستلام.",
+      },
+    },
+    outcome: { en: "Order confirmed · Customer name captured · Sent to team", ar: "تأكيد الطلب · حفظ اسم العميل · إرساله للفريق" },
   },
   {
     id: "booking",
     icon: Calendar,
-    label: { en: "Bookings", ar: "الحجوزات" },
-    tag: { en: "Books while you sleep", ar: "يحجز وأنت نائم" },
+    label: { en: "Reservations", ar: "الحجوزات" },
+    tag: { en: "Books tables after hours", ar: "يحجز الطاولات بعد الدوام" },
     script: {
       en: {
-        agent: "I can see two openings this week — Wednesday 11am or Friday 4pm.",
-        caller: "Friday works better.",
-        agent2: "Booked. You'll get a confirmation text in a second.",
+        agent: "I can help with that. How many guests and what time tonight?",
+        caller: "Four people at 8:30.",
+        agent2: "Booked for four at 8:30 under Ahmed. You will get a confirmation text now.",
       },
       ar: {
-        agent: "عندي موعدين هالأسبوع — الأربعاء ١١ صباحاً أو الجمعة ٤ عصراً.",
-        caller: "الجمعة أنسب.",
-        agent2: "تم الحجز. راح يوصلك تأكيد برسالة خلال ثوانٍ.",
+        agent: "أكيد. كم عدد الأشخاص وأي وقت اليوم؟",
+        caller: "أربعة أشخاص الساعة ٨:٣٠.",
+        agent2: "تم الحجز لأربعة أشخاص الساعة ٨:٣٠ باسم أحمد. سيصلك تأكيد الآن.",
       },
     },
-    outcome: { en: "Calendar synced · Reminder scheduled · CRM updated", ar: "تم مزامنة التقويم · جدولة تذكير · تحديث CRM" },
+    outcome: { en: "Reservation captured · SMS confirmation ready", ar: "تم تسجيل الحجز · تأكيد SMS جاهز" },
   },
   {
-    id: "support",
-    icon: Headphones,
-    label: { en: "Support", ar: "الدعم" },
-    tag: { en: "24/7, no hold music", ar: "دعم على مدار الساعة" },
+    id: "catering",
+    icon: CakeSlice,
+    label: { en: "Catering", ar: "كاترينغ" },
+    tag: { en: "Captures high-value leads", ar: "يلتقط طلبات عالية القيمة" },
     script: {
       en: {
-        agent: "I can see your order shipped yesterday. It's out for delivery this afternoon.",
-        caller: "Perfect — can you text me the tracking?",
-        agent2: "Sending it now. Anything else?",
+        agent: "For 35 people, I will collect the date, budget, dietary notes, and preferred dishes.",
+        caller: "It is for Thursday lunch, mostly sandwiches and desserts.",
+        agent2: "Got it. I sent the catering brief to the manager so they can quote you quickly.",
       },
       ar: {
-        agent: "طلبك تم شحنه أمس وراح يوصلك بعد الظهر.",
-        caller: "ممتاز — ممكن ترسل لي رابط التتبع؟",
-        agent2: "أرسلته لك الحين. شي ثاني؟",
+        agent: "لـ ٣٥ شخصاً، سأخذ التاريخ والميزانية والملاحظات الغذائية والأطباق المطلوبة.",
+        caller: "الخميس وقت الغداء، غالباً ساندويتشات وحلويات.",
+        agent2: "تم. أرسلت ملخص الكاترينغ للمدير حتى يجهز عرض السعر بسرعة.",
       },
     },
-    outcome: { en: "Ticket auto-resolved · Tracking SMS delivered", ar: "تم حل التذكرة · إرسال رابط التتبع" },
+    outcome: { en: "Lead qualified · Details structured · Manager alerted", ar: "تأهيل العميل · تنظيم التفاصيل · تنبيه المدير" },
   },
   {
-    id: "clinics",
-    icon: Stethoscope,
-    label: { en: "Clinics", ar: "العيادات" },
-    tag: { en: "Triage & reminders", ar: "فرز وتذكير" },
+    id: "faq",
+    icon: MessageSquare,
+    label: { en: "Menu FAQ", ar: "أسئلة المنيو" },
+    tag: { en: "Answers repeat questions", ar: "يرد على الأسئلة المتكررة" },
     script: {
       en: {
-        agent: "I'll need your date of birth to pull up your file — go ahead.",
-        caller: "March 12, 1991.",
-        agent2: "Got it. Dr. Reyes has Thursday at 9 — should I lock it in?",
+        agent: "The pistachio cake contains dairy and nuts. We also have a vegan brownie today.",
+        caller: "Great. Can you hold two pieces?",
+        agent2: "Yes. I will hold two vegan brownies for pickup under your name.",
       },
       ar: {
-        agent: "أحتاج تاريخ ميلادك علشان أفتح ملفك — تفضل.",
-        caller: "١٢ مارس ١٩٩١.",
-        agent2: "تم. د. ريّس متاح الخميس الساعة ٩ — أحجز لك؟",
+        agent: "كيكة الفستق تحتوي على ألبان ومكسرات. ولدينا براوني نباتي اليوم.",
+        caller: "ممتاز. ممكن تحجز قطعتين؟",
+        agent2: "نعم. سأحجز قطعتين براوني نباتي للاستلام باسمك.",
       },
     },
-    outcome: { en: "Patient verified · Appointment confirmed", ar: "تم التحقق من المريض · تأكيد الموعد" },
+    outcome: { en: "Allergen answer · Item held · Fewer staff interruptions", ar: "إجابة حساسية · حجز المنتج · تقليل مقاطعة الموظفين" },
   },
   {
-    id: "ecom",
-    icon: ShoppingBag,
-    label: { en: "E-commerce", ar: "التجارة" },
-    tag: { en: "Recover lost carts", ar: "استرجاع السلات" },
+    id: "bilingual",
+    icon: Languages,
+    label: { en: "Arabic + English", ar: "عربي + إنجليزي" },
+    tag: { en: "Switches language naturally", ar: "يبدّل اللغة بسلاسة" },
     script: {
       en: {
-        agent: "Hi Omar — noticed you left a few things in your cart. Want a quick 10% nudge?",
-        caller: "Sure, send it.",
-        agent2: "Done — code's in your inbox. Free shipping kicks in too.",
+        agent: "I can continue in Arabic or English. Which is easier for you?",
+        caller: "Arabic please, but send the order summary in English.",
+        agent2: "Absolutely. I will speak Arabic and send the kitchen summary in English.",
       },
       ar: {
-        agent: "أهلاً عمر — لاحظت إنك تركت سلتك. تبي خصم ١٠٪؟",
-        caller: "أكيد، أرسله.",
-        agent2: "تم — الكود وصل بريدك، والشحن مجاني كمان.",
+        agent: "أقدر أكمل بالعربية أو الإنجليزية. أيهما أسهل لك؟",
+        caller: "عربي لو سمحت، لكن أرسل ملخص الطلب بالإنجليزي.",
+        agent2: "أكيد. سأتحدث بالعربية وأرسل ملخص المطبخ بالإنجليزية.",
       },
     },
-    outcome: { en: "Cart recovered · Discount issued · Order placed", ar: "استرجاع السلة · إصدار خصم · إتمام الطلب" },
-  },
-  {
-    id: "auto",
-    icon: Wrench,
-    label: { en: "Auto", ar: "السيارات" },
-    tag: { en: "Diagnose like Kai", ar: "تشخيص مثل كاي" },
-    script: {
-      en: {
-        agent: "Tell me what's happening — any sounds, lights, or smells?",
-        caller: "A clicking noise every time I brake.",
-        agent2: "Sounds like worn brake pads. Don't push it past today — let me book a slot.",
-      },
-      ar: {
-        agent: "وصف لي الوضع — أصوات، أضواء، روائح؟",
-        caller: "فيه صوت طقطقة كل ما أكبس الفرامل.",
-        agent2: "غالباً تيل فرامل مستهلك. لا تأخر — أحجز لك موعد اليوم.",
-      },
-    },
-    outcome: { en: "Diagnosis logged · Service booked", ar: "تسجيل التشخيص · حجز الصيانة" },
+    outcome: { en: "Caller understood · Team receives clear summary", ar: "فهم العميل · الفريق يستلم ملخصاً واضحاً" },
   },
 ];
 
@@ -138,14 +138,19 @@ export default function VoiceUseCases() {
   return (
     <section className="py-24 border-t border-border/40">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12 max-w-2xl mx-auto">
+        <div className="text-center mb-12 max-w-3xl mx-auto">
           <p className="text-primary text-xs tracking-[0.3em] uppercase font-heading mb-4">
-            {isAr ? "حالات الاستخدام" : "Where Kai shows up"}
+            {isAr ? "مكالمات المطاعم" : "Restaurant call workflows"}
           </p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
-            {isAr ? "وكيل صوتي واحد." : "One voice agent."}{" "}
-            <span className="green-gradient-text">{isAr ? "وظائف لا تُحصى." : "Endless jobs."}</span>
+            {isAr ? "وكيل واحد يغطي" : "One agent for the calls"}{" "}
+            <span className="green-gradient-text">{isAr ? "أصعب لحظات اليوم." : "that slow your team down."}</span>
           </h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            {isAr
+              ? "ابدأ بالمكالمات التي تضيع وقت الفريق: الاستلام، الحجوزات، الكاترينغ، وأسئلة المنيو."
+              : "Start with the calls that steal staff time: pickup orders, reservations, catering requests, and repeat menu questions."}
+          </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 mb-10 max-w-4xl mx-auto">
@@ -186,11 +191,11 @@ export default function VoiceUseCases() {
               dir={isAr ? "rtl" : "ltr"}
               className="rounded-3xl border border-primary/20 bg-card overflow-hidden"
             >
-              <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-background/40">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-background/40 gap-3">
                 <span className="text-primary text-[10px] font-mono tracking-[0.2em] uppercase">
                   {isAr ? current.tag.ar : current.tag.en}
                 </span>
-                <span className="flex items-center gap-1.5 text-[10px] font-mono text-muted-foreground">
+                <span className="flex items-center gap-1.5 text-[10px] font-mono text-muted-foreground shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                   {isAr ? "مكالمة مباشرة" : "LIVE CALL"}
                 </span>
@@ -203,7 +208,7 @@ export default function VoiceUseCases() {
               </div>
 
               <div className="px-5 py-3 border-t border-border bg-primary/5">
-                <div className="flex items-center gap-2 text-xs">
+                <div className="flex items-center gap-2 text-xs flex-wrap">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   <span className="text-primary font-mono tracking-wider text-[10px] uppercase">
                     {isAr ? "النتيجة" : "Outcome"}
@@ -236,7 +241,7 @@ function Bubble({ role, text, isAr }: { role: "agent" | "caller"; text: string; 
         }`}
       >
         <div className={`text-[9px] font-mono tracking-wider mb-1 ${isAgent ? "text-primary" : "text-muted-foreground"}`}>
-          {isAgent ? (isAr ? "كاي" : "KAI") : isAr ? "المتصل" : "CALLER"}
+          {isAgent ? (isAr ? "زارا" : "ZARA") : isAr ? "المتصل" : "CALLER"}
         </div>
         {text}
       </div>
