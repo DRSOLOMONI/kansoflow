@@ -7,7 +7,7 @@ const plans = [
   {
     icon: Phone,
     name: { en: "Starter", ar: "البداية" },
-    price: "$99",
+    price: "OMR 39",
     note: { en: "/month", ar: "/شهرياً" },
     description: {
       en: "For cafes that need every call answered and summarized.",
@@ -21,7 +21,7 @@ const plans = [
   {
     icon: Store,
     name: { en: "Growth", ar: "النمو" },
-    price: "$199",
+    price: "OMR 79",
     note: { en: "/month", ar: "/شهرياً" },
     popular: true,
     description: {
@@ -36,7 +36,7 @@ const plans = [
   {
     icon: Building2,
     name: { en: "Pro", ar: "المتقدم" },
-    price: "$349",
+    price: "OMR 135",
     note: { en: "/location", ar: "/فرع" },
     description: {
       en: "For teams that want integrations, analytics, and tighter controls.",
