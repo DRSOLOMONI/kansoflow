@@ -45,11 +45,11 @@ const MENU: Record<string, MenuItem> = {
 const T = {
   en: {
     greeting: "Hi, I am Zara from Kanso Flow. I can take a pickup order, answer menu questions, and hand the summary to your team. Try: two lattes and a croissant for pickup.",
-    title: "Meet Zara, the AI phone agent for cafes.",
-    subtitle: "This front-end demo works even before a live phone/POS integration is connected.",
-    orderTitle: "Confirmed draft order",
+    title: "Try the Zara call-handling demo.",
+    subtitle: "Interactive product simulation only. It does not connect to a real phone line, AI voice provider, POS, or staff inbox.",
+    orderTitle: "Draft handoff preview",
     totalLabel: "Total",
-    confirm: "Send to team",
+    confirm: "Preview handoff",
     clear: "Clear",
     mic: "Speak order",
     listening: "Listening",
@@ -59,11 +59,11 @@ const T = {
   },
   ar: {
     greeting: "أهلاً، أنا زارا من كانسو فلو. أستطيع أخذ طلب استلام، الرد على أسئلة المنيو، وإرسال ملخص للفريق. جرّب: لاتيهين وكرواسان للاستلام.",
-    title: "تعرّف على زارا، وكيل الهاتف الذكي للمقاهي.",
-    subtitle: "هذا العرض يعمل في الواجهة حتى قبل ربط الهاتف أو نظام نقاط البيع.",
-    orderTitle: "مسودة الطلب المؤكد",
+    title: "جرّب محاكاة زارا للتعامل مع المكالمات.",
+    subtitle: "هذه محاكاة تفاعلية فقط؛ لا تتصل بخط هاتف حقيقي أو مزود صوت ذكي أو نظام نقاط البيع أو صندوق وارد للفريق.",
+    orderTitle: "معاينة ملخص التسليم",
     totalLabel: "الإجمالي",
-    confirm: "إرسال للفريق",
+    confirm: "معاينة التسليم",
     clear: "مسح",
     mic: "تحدث بالطلب",
     listening: "جاري الاستماع",
@@ -247,7 +247,7 @@ export default function VoiceWaiter() {
     <section className="py-20 sm:py-24 bg-background" id="zara-demo">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <p className="text-primary text-xs tracking-[0.3em] uppercase font-heading mb-3">Live Demo</p>
+          <p className="text-primary text-xs tracking-[0.3em] uppercase font-heading mb-3">Interactive prototype · Not connected to a live phone line</p>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">{T[lang].title}</h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">{T[lang].subtitle}</p>
         </div>
@@ -275,7 +275,7 @@ export default function VoiceWaiter() {
                 <div className="h-14 w-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl">Z</div>
                 <div>
                   <div className="text-xl font-bold tracking-tight">Zara</div>
-                  <div className="text-sm text-muted-foreground">Restaurant phone agent · Arabic + English</div>
+                  <div className="text-sm text-muted-foreground">Simulated call assistant · Arabic + English</div>
                 </div>
               </div>
 
@@ -413,12 +413,12 @@ export default function VoiceWaiter() {
         >
           <div className="bg-card border border-primary/25 rounded-[8px] p-8 w-full max-w-[420px] text-center">
             <CheckCircle2 size={52} className="mx-auto mb-4 text-primary" />
-            <h3 className="text-xl font-bold mb-2">{lang === "ar" ? "تم تجهيز ملخص الطلب" : "Order summary ready"}</h3>
+            <h3 className="text-xl font-bold mb-2">{lang === "ar" ? "تم تجهيز معاينة الملخص" : "Handoff preview ready"}</h3>
             <p className="text-sm text-muted-foreground mb-6">
-              {lang === "ar" ? "في المنتج الحقيقي، يرسل كانسو فلو هذا الملخص للفريق عبر القناة التي تختارها." : "In production, Kanso Flow sends this summary to your team through your chosen handoff channel."}
+              {lang === "ar" ? "هذه معاينة تجريبية فقط. لا يتم إرسال الطلب إلى فريق أو نظام خارجي." : "This is a prototype preview only. No order is sent to staff or an external system."}
             </p>
             <div className="bg-primary/10 border border-primary/30 rounded-[8px] py-3 px-5 mb-6">
-              <div className="text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">{lang === "ar" ? "رقم الطلب" : "Order Number"}</div>
+              <div className="text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">{lang === "ar" ? "رقم معاينة تجريبي" : "Demo reference"}</div>
               <div className="text-2xl font-extrabold text-primary">{orderNumber}</div>
             </div>
             <button onClick={() => setModal("none")} className="w-full px-4 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition">
