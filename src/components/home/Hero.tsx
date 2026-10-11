@@ -15,8 +15,8 @@ export default function Hero() {
     headline1: isAr ? "لا تفوّت أي" : "Never miss",
     headline2: isAr ? "طلب هاتفي." : "another phone order.",
     subheadline: isAr
-      ? "كانسو فلو يرد على مكالمات العملاء، يأخذ طلبات الاستلام، يجيب عن أسئلة المنيو، يجمع حجوزات وكاترينغ، ويرسل ملخصاً واضحاً لفريقك بالعربية والإنجليزية."
-      : "Kanso Flow answers calls, takes pickup orders, handles menu questions, captures reservations and catering leads, then sends a clean summary to your team in English or Arabic.",
+      ? "ترد زارا على مكالمات المقهى بالعربية أو الإنجليزية، وتجيب عن أسئلة ساعات العمل والمنيو، وتجمع طلبات الاستلام، وتجهز ملخصاً واضحاً بعد تأكيد العميل لإرساله إلى الفريق. ويمكن إضافة الحجوزات والكاترينغ في مراحل لاحقة."
+      : "Zara answers café phone calls in Arabic or English, handles opening-hours and menu questions, captures pickup orders, and prepares a clear, caller-confirmed summary for your team. Reservations and catering can be added as later workflows.",
     cta: isAr ? "احجز تجربة" : "Book a restaurant demo",
     ctaSecondary: isAr ? "جرّب زارا" : "Try Zara live",
     points: isAr
