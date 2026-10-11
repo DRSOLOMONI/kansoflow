@@ -197,7 +197,7 @@ export default function VoiceUseCases() {
                 </span>
                 <span className="flex items-center gap-1.5 text-[10px] font-mono text-muted-foreground shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  {isAr ? "مكالمة مباشرة" : "LIVE CALL"}
+                  {isAr ? "مثال مكالمة" : "SAMPLE CALL"}
                 </span>
               </div>
 
